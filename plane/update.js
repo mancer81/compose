@@ -1,19 +1,10 @@
 import utils from "../utils.js";
 
-console.log(
-  "Plan file structure has changed. This script needs to be reworked."
-);
-
-process.exit();
-
-await utils.cloneOrPullRepo({
-  repo: "https://github.com/makeplane/plane.git",
-  path: "./repo",
-  branch: "preview",
-});
-
-await utils.copyDir("./repo/deploy/selfhost", "./code");
-await utils.renameFile("./code/variables.env", "./code/.env.example");
+await utils.removeDir("./code");
+await utils.renameDir("./plane-code", "./code");
+await utils.removeDir("./code/archive");
+await utils.renameFile("./code/plane.env", "./code/.env.example");
+await utils.renameFile("./code/docker-compose.yaml", "./code/docker-compose.yml");
 
 await utils.removeContainerNames("./code/docker-compose.yml");
 await utils.removePorts("./code/docker-compose.yml");

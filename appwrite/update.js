@@ -14,6 +14,6 @@ await utils.removePorts("./code/docker-compose.yml");
 
 await utils.searchReplace(
   "./code/.env.example",
-  "_APP_DOMAIN=",
+  "_APP_DOMAIN=localhost",
   "_APP_DOMAIN=$(PRIMARY_DOMAIN)"
 );
