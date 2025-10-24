@@ -1,5 +1,5 @@
 # compose/dify/code/plugin_daemon/Dockerfile
-FROM langgenius/dify-plugin-daemon:latest
+FROM ghcr.io/langgenius/dify-plugin-daemon:0.0.10
 
 USER root
 
@@ -12,5 +12,3 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential python3-dev \
     cmake meson ninja-build \
  && rm -rf /var/lib/apt/lists/*
-
-# Pozostawiamy domyślny entrypoint/cmd obrazu bazowego
